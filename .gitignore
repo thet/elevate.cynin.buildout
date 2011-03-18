@@ -1,0 +1,17 @@
+bin
+dev
+develop-eggs
+eggs
+products/*
+src/*
+parts
+static
+var
+*.pyc
+*.pyo
+*.wpr
+*.mo
+*.egg-info
+*~
+.*
+!.gitignore
