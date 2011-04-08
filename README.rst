@@ -19,7 +19,7 @@ $ git clone git://github.com/thet/elevate.cynin.buildout.git
 installation
 ============
 
-$ svn co http://odn.cynapse.com/svn/cynin/tags/cynin_3_1_3 cynin_3_1_3
+$ svn co http://odn.cynapse.com/svn/cynin/tags/cynin_3_2_2
 $ python24 bootstrap.py -d -c base.cfg
 
 on development box
