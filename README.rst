@@ -6,11 +6,34 @@ necessary ubuntu packages to install
 
 eventually install:
 
-$ sudo apt-get install build-essential libssl-dev libjpeg62-dev libreadline5-dev wv  libxml2-dev libxslt1-dev libsasl2-dev poppler-utils libdb4.4-dev libldap2-dev python2.4-dev
+$ sudo apt-get install build-essential libreadline-dev zlib1g-dev libbz2-dev
+$ sudo apt-get install libssl-dev libjpeg8-dev
+$ sudo apt-get install wv libxml2-dev libxslt1-dev libsasl2-dev poppler-utils
+$ sudo apt-get install libdb4.4-dev libldap2-dev
+$ sudo apt-get install git
+
+install python 2.4
+==================
+
+Python 2.4 is not available on debian-stable, so you have to build it:
+
+$ cd PYTHON_INSTALL_DIRECTORY
+
+r/w access:
+$ svn co https://svn.plone.org/svn/collective/buildout/bda-naked-python/
+
+r/o access:
+$ svn co http://svn.plone.org/svn/collective/buildout/bda-naked-python/
+
+$ cd bda-naked-python24
+$ python bootstrap.py -d -c buildout2.4.cfg
+$ ./bin/buildout -c buildout2.4.cfg
 
 
 get it
 ======
+
+$ cd INSTALL_DIRECTORY
 
 r/w access:
 $ git clone git@github.com:thet/elevate.cynin.buildout.git
@@ -22,22 +45,25 @@ $ git clone git://github.com/thet/elevate.cynin.buildout.git
 installation
 ============
 
+$ cd elevate.cynin.buildout
 $ svn co http://odn.cynapse.com/svn/cynin/tags/cynin_3_2_2
 
 
 on development box
 ------------------
 
-$ python24 bootstrap.py -d -c dev.cfg
+$ PYTHON_INSTALL_DIRECTORY/bin/python24 bootstrap.py -d -c dev.cfg
 
 $ ./bin/buildout -c dev.cfg
+
 
 on deployment box
 -----------------
 
-$ python24 bootstrap.py -d -c deployment.cfg
+$ PYTHON_INSTALL_DIRECTORY/bin/python24 bootstrap.py -d -c deployment.cfg
 
 $ ./bin/buildout -c deployment.cfg
+
 
 all
 ---
