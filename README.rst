@@ -18,6 +18,9 @@ $ sudo apt-get install libdb4.4-dev libldap2-dev
 
 $ sudo apt-get install git
 
+$ addgroup --system zope
+$ adduser --system --no-create-home --disabled-login --ingroup zope --disabled-password --shell /bin/false zope
+
 install python 2.4
 ==================
 
