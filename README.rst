@@ -6,6 +6,8 @@ necessary ubuntu packages to install
 
 eventually install:
 
+$ sudo apt-get install python2.6-dev
+
 $ sudo apt-get install build-essential libreadline-dev zlib1g-dev libbz2-dev
 
 $ sudo apt-get install libssl-dev libjpeg8-dev
