@@ -16,7 +16,7 @@ $ sudo apt-get install wv libxml2-dev libxslt1-dev libsasl2-dev poppler-utils
 
 $ sudo apt-get install libdb4.4-dev libldap2-dev
 
-$ sudo apt-get install git
+$ sudo apt-get install git subversion
 
 $ addgroup --system zope
 $ adduser --system --no-create-home --disabled-login --ingroup zope --disabled-password --shell /bin/false zope
@@ -40,6 +40,12 @@ $ svn co http://svn.plone.org/svn/collective/buildout/bda-naked-python/
 
 all
 ---
+
+$ mkdir devsrc
+$ cd devsrc/
+$ git clone git@github.com:thet/buildout-base.git
+$ cd ..
+
 
 $ cd bda-naked-python24
 
