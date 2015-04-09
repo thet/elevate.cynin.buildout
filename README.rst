@@ -6,10 +6,10 @@ necessary ubuntu packages to install
 
 eventually install::
 
-    $ sudo apt-get install python2.6-dev
     $ sudo apt-get install build-essential libreadline-dev zlib1g-dev libbz2-dev
     $ sudo apt-get install libssl-dev libjpeg8-dev
-    $ sudo apt-get install wv libxml2-dev libxslt1-dev libsasl2-dev poppler-utils
+    $ sudo apt-get install libxml2-dev libxslt1-dev libsasl2-dev
+    $ sudo apt-get install wv poppler-utils
     $ sudo apt-get install libdb4.4-dev libldap2-dev
     $ sudo apt-get install git subversion
 
