@@ -4,98 +4,35 @@ elevate cynin setup
 necessary ubuntu packages to install
 ------------------------------------
 
-eventually install:
+eventually install::
 
-$ sudo apt-get install python2.6-dev
+    $ sudo apt-get install python2.6-dev
+    $ sudo apt-get install build-essential libreadline-dev zlib1g-dev libbz2-dev
+    $ sudo apt-get install libssl-dev libjpeg8-dev
+    $ sudo apt-get install wv libxml2-dev libxslt1-dev libsasl2-dev poppler-utils
+    $ sudo apt-get install libdb4.4-dev libldap2-dev
+    $ sudo apt-get install git subversion
 
-$ sudo apt-get install build-essential libreadline-dev zlib1g-dev libbz2-dev
+    $ addgroup --system zope
+    $ adduser --system --no-create-home --disabled-login --ingroup zope --disabled-password --shell /bin/false zope
 
-$ sudo apt-get install libssl-dev libjpeg8-dev
+Install Python 2.4. On Ubuntu, use deadsnakes repository. Otherwise build it.
 
-$ sudo apt-get install wv libxml2-dev libxslt1-dev libsasl2-dev poppler-utils
-
-$ sudo apt-get install libdb4.4-dev libldap2-dev
-
-$ sudo apt-get install git subversion
-
-$ addgroup --system zope
-$ adduser --system --no-create-home --disabled-login --ingroup zope --disabled-password --shell /bin/false zope
-
-install python 2.4
-==================
-
-Python 2.4 is not available on debian-stable, so you have to build it:
-
-$ cd PYTHON_INSTALL_DIRECTORY
-
-r/w access
-----------
-
-$ svn co https://svn.plone.org/svn/collective/buildout/bda-naked-python/
-
-r/o access
-----------
-
-$ svn co http://svn.plone.org/svn/collective/buildout/bda-naked-python/
-
-all
----
-
-$ mkdir devsrc
-$ cd devsrc/
-$ git clone git@github.com:thet/buildout-base.git
-$ cd ..
+https://launchpad.net/~fkrull/+archive/ubuntu/deadsnakes
 
 
-$ cd bda-naked-python24
+Install elevate.cynin
+---------------------
+::
+    $ git clone git@github.com:thet/elevate.cynin.buildout.git
 
-$ python bootstrap.py -d -c buildout2.4.cfg
-
-$ ./bin/buildout -c buildout2.4.cfg
-
-
-get it
-======
-
-$ cd INSTALL_DIRECTORY
-
-r/w access
-----------
-
-$ git clone git@github.com:thet/elevate.cynin.buildout.git
-
-ro access
----------
-
-$ git clone git://github.com/thet/elevate.cynin.buildout.git
+::
+    $ python2.4 bootstrap.py -c deploy.cfg  # or dev.cfg
+    $ ./bin/buildout -c deploy.cfg  # or dev.cfg
 
 
-installation
-============
-
-$ cd elevate.cynin.buildout
-
-$ svn co http://odn.cynapse.com/svn/cynin/tags/cynin_3_2_2
-
-
-on development box
-------------------
-
-$ PYTHON_INSTALL_DIRECTORY/bin/python24 bootstrap.py -d -c dev.cfg
-
-$ ./bin/buildout -c dev.cfg
-
-
-on deployment box
------------------
-
-$ PYTHON_INSTALL_DIRECTORY/bin/python24 bootstrap.py -d -c deployment.cfg
-
-$ ./bin/buildout -c deployment.cfg
-
-
-all
----
+then
+----
 
 - login to management interface http://localhost:8080/manage
 
@@ -106,7 +43,6 @@ all
 - create a ZODB mount point
 
 - add plone instance with id 'elevate_cynin' and product ubify.policy enabled
-
 
 
 cynin resources
