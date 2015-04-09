@@ -1,0 +1,38 @@
+<tal:root define="lt string:&lt;;gt string:&gt;;
+                  dummy python:request.RESPONSE.setHeader('Content-Type', 'text/html;; charset=%s' % here.plone_utils.getSiteEncoding());
+                  member python:options['member'];
+                  reset python:options.get('reset', None) or here.portal_password_reset.requestReset(member.getId())"
+>From: "<span tal:replace="python:here.email_from_name" />" <span tal:replace="structure lt"/><span tal:replace="python:here.email_from_address" /><span tal:replace="structure gt"/>
+To: <span tal:replace="python:member.getProperty('email')" />
+Subject: <span i18n:domain="passwordresettool" i18n:translate="mailtemplate_user_account_info" tal:omit-tag="">Elevate Awards 2012: User Account Information for the Online Voting Tool</span>
+Content-Type: text/html; charset=<span tal:replace="here/email_charset|here/portal_properties/site_properties/default_charset|string:utf-8" />
+
+<div i18n:domain="passwordresettool"
+     i18n:translate="mailtemplate_registered_user_body"
+     tal:define="fullname python:getattr(here.REQUEST, 'fullname', '')">
+    Dear <span i18n:name="fullname" tal:replace="fullname" />!<br />
+<br />
+    Your user account in our online voting system has been created. Please activate it by visiting
+    <br />
+    <br />
+    <a tal:define="reseturl python:here.pwreset_constructURL(reset['randomstring'],member.getUserName())"
+       tal:attributes="href reseturl"
+       tal:content="structure reseturl"
+          i18n:name="set_password" />
+    <br />
+    <br />
+After clicking on the link, setting your password and logging in, you should be able to see the nominations by clicking on "International Elevate Awards" in the left section of the website. Then you can see all the entries, which can be clicked on to see the details. After reviewing a project, please just rate it with the rating system provided (1 to 5 stars), which you can find at the top right side of the page.<br /><br />
+
+To have an easy overview of all the nominations, you can use this link:<br />
+<b><a href="https://cyn.elevate.at/home/international-elevate-awards/nominations/app_wiki?sort_on=sortable_title&sort_order=asc&limit_display:int=100">https://cyn.elevate.at/home/international-elevate-awards/nominations/app_wiki?sort_on=sortable_title&sort_order=asc&limit_display:int=100</a></b>
+<br /><br />
+
+Thanks so much for your contribution!<br /><br />
+All the best,<br />
+Daniel Erlacher and the Elevate Team    <br />
+<br />
+ps: if you have any questions about the system or need any assistance, please just email to awards@elevate.at or call Daniel at +436507977777 
+<br /><br />****<br />
+"How do we make the world work for 100% of humanity in the shortest possible time through spontaneous cooperation without ecological damage or disadvantage to anyone?" - Buckminster Fuller
+</div>
+</tal:root>
